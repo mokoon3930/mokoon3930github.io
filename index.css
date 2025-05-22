@@ -1,0 +1,9 @@
+body {
+  background: #f0f0f0;
+}
+#profile-card {
+  width: 100pxx;
+  height: 100px;
+  background: green;
+  border-radius: 15px;
+}
