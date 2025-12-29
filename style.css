@@ -1,0 +1,263 @@
+/* ====== Base ====== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  line-height: 1.6;
+  color: #111;
+  background: #f6f7fb;
+}
+
+a{ color: inherit; text-decoration: none; }
+img{ display: block; max-width: 100%; }
+
+/* ====== Layout ====== */
+main{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 92px 16px 48px; /* 헤더 높이만큼 위 여백 */
+}
+
+section, article{
+  background: #fff;
+  border: 1px solid #e8e8ef;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(20, 20, 40, 0.06);
+}
+
+section{ margin-bottom: 18px; }
+h2{
+  margin: 0 0 14px;
+  font-size: 22px;
+  letter-spacing: -0.3px;
+}
+h3{
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+/* ====== Header ====== */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ececf4;
+}
+
+header > div{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+header a[href="#top"]{
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+}
+
+nav{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+nav a{
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: #222;
+}
+
+nav a:hover{
+  border-color: #d7d7e6;
+  background: #f4f4fb;
+}
+
+/* ====== Profile ====== */
+#profile{
+  display: grid;
+  grid-template-columns: 1fr 170px;
+  gap: 14px 18px;
+  align-items: start;
+}
+
+#profile h2{ grid-column: 1 / -1; }
+
+.profile-photo{
+  grid-column: 2;
+  grid-row: 2 / span 10;
+  justify-self: end;
+}
+
+.profile-photo img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+
+/* 프로필 텍스트(대충 줄 간격 정리) */
+#profile > div{
+  color: #222;
+}
+#profile > div:nth-of-type(1){ font-size: 18px; font-weight: 800; }
+#profile #age{ font-weight: 700; color: #444; }
+#profile > div:last-of-type{ color: #555; }
+
+.profile-head{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.profile-age{
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+}
+
+/* ====== Skills ====== */
+.skills-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.skill{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #ececf4;
+  border-radius: 14px;
+  background: #fafafe;
+}
+
+.skill img{
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  background: #fff;
+  border: 1px solid #ececf4;
+  border-radius: 12px;
+  padding: 6px;
+}
+
+.skill-info{ flex: 1; min-width: 0; }
+
+.skill-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.skill-name{ font-weight: 800; font-size: 14px; }
+.skill-percent{ font-weight: 800; font-size: 13px; color: #333; }
+
+.bar{
+  height: 8px;
+  background: #e9e9f3;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.bar span{
+  display: block;
+  height: 100%;
+  background: #2f2f38;
+  border-radius: 999px;
+}
+
+/* ====== Project ====== */
+#project article > div{
+  color: #333;
+  margin: 6px 0;
+}
+
+#project article > div:nth-of-type(2){
+  font-size: 13px;
+  color: #555;
+}
+
+/* 표 스타일 */
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+table, th, td{ border: 1px solid #e7e7f0; }
+th{
+  width: 220px;
+  text-align: left;
+  padding: 10px 12px;
+  background: #f6f6ff;
+  font-weight: 800;
+  color: #222;
+}
+td{
+  padding: 10px 12px;
+  color: #333;
+}
+
+/* 링크 버튼 */
+.links{
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.links a{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e3e3ee;
+  background: #fff;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.links a:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px rgba(20, 20, 40, 0.08);
+}
+
+/* ====== Contact ====== */
+#contact table th{ width: 140px; }
+
+/* ====== Responsive ====== */
+@media (max-width: 720px){
+  #profile{
+    grid-template-columns: 1fr;
+  }
+  #profile img{
+    width: 140px;
+    height: 140px;
+  }
+  .skills-grid{
+    grid-template-columns: 1fr;
+  }
+  th{ width: 160px; }
+}
