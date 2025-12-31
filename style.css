@@ -107,7 +107,6 @@ nav a:hover{
   border-radius: 14px;
 }
 
-
 /* 프로필 텍스트(대충 줄 간격 정리) */
 #profile > div{
   color: #222;
@@ -196,26 +195,39 @@ nav a:hover{
   color: #555;
 }
 
-/* 표 스타일 */
-table{
-  width: 100%;
-  border-collapse: collapse;
+/* ====== Table (둥글게 + 외곽선 확실하게) ====== */
+/* ✅ table 자체는 border-radius가 collapse에서는 잘 안 먹을 수 있어서
+      wrapper 방식으로 "진짜" 둥글게 처리 */
+.table-wrap{
   margin-top: 12px;
-  overflow: hidden;
-  border-radius: 12px;
+  border: 1px solid #73737c;     /* 바깥 외곽선 */
+  border-radius: 14px;           /* ✅ 둥글게 */
+  overflow: hidden;              /* ✅ 모서리 잘라내기 */
+  background: #fff;
 }
 
-table, th, td{ border: 1px solid #e7e7f0; }
-th{
+.table-wrap table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  border: 0;                     /* wrapper가 외곽선 담당 */
+}
+
+.table-wrap th,
+.table-wrap td{
+  border: 1px solid #0c0c0f;     /* 칸 테두리 */
+  padding: 10px 12px;
+}
+
+.table-wrap th{
   width: 220px;
   text-align: left;
-  padding: 10px 12px;
   background: #f6f6ff;
   font-weight: 800;
   color: #222;
 }
-td{
-  padding: 10px 12px;
+
+.table-wrap td{
   color: #333;
 }
 
@@ -259,5 +271,5 @@ td{
   .skills-grid{
     grid-template-columns: 1fr;
   }
-  th{ width: 160px; }
+  .table-wrap th{ width: 160px; }
 }
